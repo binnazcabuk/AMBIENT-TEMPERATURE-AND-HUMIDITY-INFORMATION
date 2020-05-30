@@ -1,0 +1,3 @@
+>>> Warning 208 "odev2.c" Line 164(7,18): Function not void and does not return a value  measuretemp
+>>> Warning 208 "odev2.c" Line 179(7,19): Function not void and does not return a value  measurehumid
+>>> Warning 203 "odev2.c" Line 236(1,1): Condition always TRUE

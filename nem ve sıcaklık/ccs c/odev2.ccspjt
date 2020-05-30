@@ -1,0 +1,23 @@
+[PROJECT]
+Target=odev2.hex
+Processor_Text=PIC16F877
+CCSVerions=5.007
+Compiler=PCM
+CCSVersion=5.007
+[Target Data]
+FileList=odev2.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\;C:\Users\ASUS\Downloads\Documents\CCS C Projects\Demo\
+[C:\Users\ASUS\Downloads\Documents\CCS C Projects\Demo\odev2]
+Type=4
+[mru-list]
+1=odev2.c
+[Opened Files]
+1=odev2.c
+2=
+3=
+[odev2.c]
+Type=4
+[Units]
+Count=1
+1=odev2 (main)

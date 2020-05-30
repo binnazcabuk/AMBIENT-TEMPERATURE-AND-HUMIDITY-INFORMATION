@@ -1,0 +1,176 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+021-024 MAIN.restemp
+025-028 MAIN.truehumid
+029-02A sht_rd.restemp
+029-02C @PRINTF_L32D_638FPFPF.P1
+029     comreset.i
+029     @PSTRINGCN7_638.P1
+029     lcd_init.i
+029     MAIN.@SCRATCH1
+02A     lcd_init.@SCRATCH1
+02A     @PSTRINGCN7_638.@SCRATCH1
+02B-02C sht_rd.reshumid
+02B     @PSTRINGCN7_638.@SCRATCH2
+02C     @PSTRINGCN7_638.@SCRATCH3
+02D-030 sht_rd.realhumid
+02D     @PRINTF_L32D_638FPFPF.P1
+02D     @PSTRINGCN7_638.@SCRATCH4
+02E     @PRINTF_L32D_638FPFPF.@SCRATCH1
+02F     @PRINTF_L32D_638FPFPF.@SCRATCH2
+030     @PRINTF_L32D_638FPFPF.@SCRATCH3
+031     @PRINTF_L32D_638FPFPF.@SCRATCH4
+032     @PRINTF_L32D_638FPFPF.@SCRATCH5
+033     @PRINTF_L32D_638FPFPF.@SCRATCH6
+034     @PRINTF_L32D_638FPFPF.@SCRATCH7
+035     @PRINTF_L32D_638FPFPF.@SCRATCH8
+036     lcd_putc.c
+036-039 @DIV3232.P1
+036-039 @FTOSD.P2
+037     @delay_ms1.P1
+037     lcd_gotoxy.x
+038     lcd_gotoxy.y
+039-03A calculate_data.temp
+039     lcd_gotoxy.address
+039.0   measurehumid.ack
+039.0   measuretemp.ack
+03A-03B measurehumid.iobyte
+03A-03B measuretemp.iobyte
+03A-03D @DIV3232.P1
+03A     lcd_gotoxy.@SCRATCH1
+03A     @FTOSD.@SCRATCH1
+03B-03C calculate_data.humid
+03B     lcd_send_byte.address
+03C-03D comwait.sht_delay
+03C     lcd_send_byte.n
+03C     comwrite.iobyte
+03C     comread.i
+03C     measuretemp.@SCRATCH1
+03C     measurehumid.@SCRATCH1
+03D-040 calculate_data.truehumid
+03D-03E comread.iobyte
+03D     lcd_read_byte.low
+03D     comwrite.i
+03D     lcd_send_byte.@SCRATCH1
+03E     lcd_send_nibble.n
+03E     comwrite.mask
+03E     lcd_read_byte.high
+03E     @DIV3232.@SCRATCH1
+03F     lcd_read_nibble.n
+03F.0   comwrite.ack
+03F     lcd_read_byte.@SCRATCH1
+03F     @DIV3232.@SCRATCH2
+040     lcd_read_nibble.@SCRATCH1
+040     comwrite.@SCRATCH1
+040     @DIV3232.@SCRATCH3
+041-044 calculate_data.rh
+041     @DIV3232.@SCRATCH4
+042     @DIV3232.@SCRATCH5
+045     calculate_data.@SCRATCH1
+046     calculate_data.@SCRATCH2
+047     calculate_data.@SCRATCH3
+048     calculate_data.@SCRATCH4
+049     calculate_data.@SCRATCH5
+04A     calculate_data.@SCRATCH6
+04B     calculate_data.@SCRATCH7
+04C     calculate_data.@SCRATCH8
+051-052 @ITOF.P1
+055-058 @ADDFF.P1
+059-05C @MULFF.P1
+059-05C @ADDFF.P2
+05D-060 @MULFF.P1
+05D     @ADDFF.@SCRATCH1
+05E     @ADDFF.@SCRATCH2
+05F     @ADDFF.@SCRATCH3
+060     @ADDFF.@SCRATCH4
+061     @MULFF.@SCRATCH1
+061     @ADDFF.@SCRATCH5
+062     @MULFF.@SCRATCH2
+062     @ADDFF.@SCRATCH6
+063     @MULFF.@SCRATCH3
+063     @ADDFF.@SCRATCH7
+064     @MULFF.@SCRATCH4
+064     @ADDFF.@SCRATCH8
+065     @MULFF.@SCRATCH5
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  LCD_INIT_STRING.call
+000008  LCD_INIT_STRING.data
+00000C  @const702.call
+000016  @const713.call
+000020  @delay_ms1
+000034  lcd_send_nibble
+000064  lcd_read_nibble
+000095  lcd_send_byte
+00009D  lcd_read_byte
+0000F3  lcd_init
+000130  comstart
+000162  comreset
+000162  sht_init
+000191  comwrite
+0001D6  comwait
+0001FB  comread
+000267  @ITOF
+000284  @MULFF
+0002F9  @ADDFF
+00043A  lcd_gotoxy
+00044C  lcd_putc
+000478  @PSTRINGCN7_638
+0004CC  @DIV3232
+00051B  @PRINTF_L32D_638FPFPF
+000542  @FTOSD
+0005FB  MAIN
+0005FB  @cinit1
+000600  @cinit2
+000606  sht_rd
+00060C  measuretemp
+000623  measurehumid
+000642  calculate_data
+
+Project Directory:
+    C:\Users\ASUS\Downloads\Documents\CCS C Projects\Demo\
+
+Project Files:
+    odev2.c                                                 [21-Oca-19 00:40  CRC=5FB1274D]
+    odev2.h                                                 [21-Oca-19 00:06  CRC=64D0046D]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877.h [21-Haz-13 16:04  CRC=A355A189]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [23-Aðu-12 09:01  CRC=D28E8746]
+
+Source signature=0CF3DBCF
+
+Units:
+    odev2 (main)
+
+Compiler Settings:
+    Processor:      PIC16F877
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   odev2.xsym
+    Errors:      odev2.err
+    Ext Symbols: odev2.esym
+    INHX8:       odev2.hex
+    Symbols:     odev2.sym
+    List:        odev2.lst
+    Debug/COFF:  odev2.cof
+    Project:     odev2.ccspjt
+    Call Tree:   odev2.tre
+    Statistics:  odev2.STA
